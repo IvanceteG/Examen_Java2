@@ -238,12 +238,12 @@
 			//Detectar el clic sobre qualsevol de les opcions. 
 			const opcioElements = document.querySelectorAll(".opcio");
 			opcionsElement.addEventListener("click", function (e) {
-        		console.log(`Se ha hecho clic en: ${e.target.innerHTML}`);
+        		console.log("Se ha hecho click en alguna opción");
     		});
 
 			//En prémer «Nova pregunta», netejar l’estat anterior i tornar als passos 2‑3.
 			const novaPreguntaButton = document.querySelector("#novaPregunta");
-			novaPreguntaButton.addEventListener("click", function () {
+			novaPreguntaButton.addEventListener("click", function (e) {
         		console.log("Se ha hecho clic en el botón de nueva pregunta");
         		mostrarPregunta();
     		});
