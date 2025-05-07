@@ -223,6 +223,7 @@
 			const preguntaElement = document.querySelector("#pregunta");
 			const opcionsElement = document.querySelector("#opcions");
 
+			function mostrarPregunta(){
 			const randomIndex = getRandomIndex(preguntasXML);
         	const preguntaSeleccionada = preguntasXML[randomIndex];
 
@@ -232,13 +233,22 @@
         	for (let i = 0;i<preguntaSeleccionada.opciones.length;i++) {
             	opcionsElement.innerHTML += `<button class="opcio">${preguntaSeleccionada.opciones[i]}</button>`;
         	}
+			};
 
 			//Detectar el clic sobre qualsevol de les opcions. 
 			const opcioElements = document.querySelectorAll(".opcio");
 			opcionsElement.addEventListener("click", function (e) {
-        		console.log(`Se ha hecho clic en: ${e.target.textContent}`);
+        		console.log(`Se ha hecho clic en: ${e.target.innerHTML}`);
     		});
 
+			//En prémer «Nova pregunta», netejar l’estat anterior i tornar als passos 2‑3.
+			const novaPreguntaButton = document.querySelector("#novaPregunta");
+			novaPreguntaButton.addEventListener("click", function () {
+        		console.log("Se ha hecho clic en el botón de nueva pregunta");
+        		mostrarPregunta();
+    		});
+
+    		mostrarPregunta();
 		</script>
 	</body>
 </html>
